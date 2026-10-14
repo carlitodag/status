@@ -1,31 +1,57 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# havn status: https://status.havn.gg
+# Checks run from GitHub Actions every five minutes; results are committed to
+# this repo and the page is built from them. Config reference:
+# https://upptime.js.org/docs/configuration
+owner: carlitodag
+repo: status
+user-agent: carlitodag
+
+# the only repo secret the checks may read: the Supabase anon key, which is
+# public anyway (it ships in the app) but is kept out of the config for tidiness
+secrets:
+  - SUPABASE_ANON_KEY
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Website
+    url: https://havn.gg
+    maxResponseTime: 3000
+  - name: Voice relay (Nuremberg)
+    url: https://voice.havn.gg
+    expectedStatusCodes: [200]
+    maxResponseTime: 2000
+  - name: Sign-in and accounts
+    url: https://fpdzhfrwvkxrouojbqjd.supabase.co/auth/v1/health
+    headers:
+      - "apikey: $SUPABASE_ANON_KEY"
+    maxResponseTime: 3000
+  - name: Live messages
+    check: "ws"
+    url: wss://fpdzhfrwvkxrouojbqjd.supabase.co/realtime/v1/websocket?apikey=$SUPABASE_ANON_KEY&vsn=1.0.0
+  - name: File storage
+    url: https://fpdzhfrwvkxrouojbqjd.supabase.co/storage/v1/status
+    maxResponseTime: 3000
+  - name: Server functions
+    url: https://fpdzhfrwvkxrouojbqjd.supabase.co/functions/v1/link-preview
+    # GET is refused by design; a 405 means the function runtime answered
+    expectedStatusCodes: [405]
+    maxResponseTime: 3000
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.havn.gg
+  logoUrl: https://havn.gg/favicon.svg
+  name: havn status
+  theme: dark
+  introTitle: "is havn up?"
+  introMessage: "Checks every five minutes on the website, the voice relay, sign-in, live messages, file storage and the server functions. Incidents and history below."
   navbar:
     - title: Status
       href: /
+    - title: havn.gg
+      href: https://havn.gg
+    - title: Privacy
+      href: https://havn.gg/privacy
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+assignees:
+  - carlitodag
