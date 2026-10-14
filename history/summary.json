@@ -41,19 +41,17 @@
     "icon": "https://icons.duckduckgo.com/ip3/fpdzhfrwvkxrouojbqjd.supabase.co.ico",
     "slug": "sign-in-and-accounts",
     "status": "up",
-    "uptime": "11.90%",
-    "uptimeDay": "11.90%",
-    "uptimeWeek": "11.90%",
-    "uptimeMonth": "11.90%",
-    "uptimeYear": "11.90%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 377,
     "timeDay": 377,
     "timeWeek": 377,
     "timeMonth": 377,
     "timeYear": 377,
-    "dailyMinutesDown": {
-      "2026-10-14": 3
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Live messages",
@@ -61,19 +59,17 @@
     "icon": "https://icons.duckduckgo.com/ip3/fpdzhfrwvkxrouojbqjd.supabase.co.ico",
     "slug": "live-messages",
     "status": "up",
-    "uptime": "11.11%",
-    "uptimeDay": "11.11%",
-    "uptimeWeek": "11.11%",
-    "uptimeMonth": "11.11%",
-    "uptimeYear": "11.11%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 0,
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
     "timeYear": 0,
-    "dailyMinutesDown": {
-      "2026-10-14": 3
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "File storage",
