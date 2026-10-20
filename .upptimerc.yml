@@ -50,8 +50,6 @@ status-website:
       href: https://havn.gg
     - title: Privacy
       href: https://havn.gg/privacy
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
 
 assignees:
   - carlitodag
